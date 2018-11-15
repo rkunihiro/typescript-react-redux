@@ -31,7 +31,10 @@
         // "noFallthroughCasesInSwitch": true,
         "moduleResolution": "node",
         "baseUrl": "./src",
-        "paths": {},
+        "paths": {
+            "*": ["./*"],
+            "components/*": ["./components/*"]
+        },
         // "rootDirs": [],
         "typeRoots": ["node_modules/@types"],
         // "types": [],

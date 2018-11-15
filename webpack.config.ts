@@ -1,10 +1,10 @@
 import path from "path";
 import webpack from "webpack";
 import webpackDevServer from "webpack-dev-server";
+import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
 
 const entry: webpack.Entry = {
     main: "./src/index.tsx",
-    html: "./src/index.html",
 };
 
 const output: webpack.Output = {
@@ -31,6 +31,14 @@ const htmlRule: webpack.RuleSetRule = {
     },
 };
 
+const extensions = [".ts", ".tsx", ".js", ".jsx"];
+
+const plugins = [
+    new TsconfigPathsPlugin({
+        configFile: "./tsconfig.json",
+    }),
+];
+
 // webpack-dev-server config
 const devServer: webpackDevServer.Configuration = {
     compress: false,
@@ -45,6 +53,10 @@ const config: webpack.Configuration = {
     output,
     module: {
         rules: [tsRule, htmlRule],
+    },
+    resolve: {
+        extensions,
+        plugins,
     },
     devServer,
 };
