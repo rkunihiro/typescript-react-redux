@@ -1,4 +1,6 @@
 import * as React from "react";
+import { Button, CssBaseline, Grid, Typography } from "@material-ui/core";
+import { withStyles } from "@material-ui/core";
 
 export interface IAppProps {
     message: string;
@@ -42,11 +44,32 @@ export class App extends React.Component<IAppProps, IAppState> {
         const { message, now } = this.state;
         return (
             <>
-                <div>{message}</div>
-                <input type="text" value={message} onChange={this.onTextChange} />
-                <div>lastUpdate: {now}</div>
-                <button onClick={this.onClick}>Reload</button>
+                <CssBaseline />
+                <Grid container={true} spacing={24}>
+                    <Grid item={true} xs={12}>
+                        <Typography variant="title" gutterBottom={true}>
+                            {message}
+                        </Typography>
+                        <input type="text" value={message} onChange={this.onTextChange} />
+                    </Grid>
+                    <Grid item={true} xs={12}>
+                        <div>lastUpdate: {now}</div>
+                    </Grid>
+                    <Grid item={true} xs={12}>
+                        <Button variant="contained" color="primary" onClick={this.onClick}>
+                            Reload
+                        </Button>
+                    </Grid>
+                </Grid>
             </>
         );
     }
 }
+
+const styles = (theme: any) => ({
+    root: {
+        flexGrow: 1,
+    },
+});
+
+export default withStyles(styles)(App);

@@ -2,6 +2,8 @@
     "name": "typescript-react-redux",
     "version": "1.0.0",
     "dependencies": {
+        "@material-ui/core": "^3.5.1",
+        "@material-ui/icons": "^3.0.1",
         "react": "^16.6.0",
         "react-dom": "^16.6.0",
         "react-redux": "^5.1.0",
@@ -10,6 +12,7 @@
         "webpack-dev-server": "^3.1.10"
     },
     "devDependencies": {
+        "@types/material-ui": "^0.21.5",
         "@types/node": "^10.12.2",
         "@types/react": "^16.4.18",
         "@types/react-dom": "^16.0.9",
